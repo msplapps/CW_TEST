@@ -13,11 +13,11 @@ button[type=button]{background:none;border:0 none}
 .transition,.transition *{-webkit-transition:all .3s ease-in-out;-moz-transition:all .3s ease-in-out;-ms-transition:all .3s ease-in-out;-o-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
 header,nav,section,article,aside,footer,hgroup,figure,figcaption,main{display:block}
 body{font-family:'Open Sans',sans-serif;font-size:16px;overflow-x:hidden;color:#2d3135}
-header{width:120px;height:100%;background:#fff;border-right:solid 1px #fff;z-index:99999!important;box-shadow:1px 0 2px #ccc;min-height:360px}
+header{width:120px;height:100%;background:#fff;border-right:solid 1px #fff;z-index:99999!important;box-shadow:1px 0 2px #ccc;min-height: 360px;}
 .logo{width:100%;height:80px}
 .logo a{display:block;background:#ed1f24;height:100%;position:relative;border-bottom:solid 1px #fff}
 .logo a img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);max-width:80px;margin:0 auto}
-.menu_btns{width:100%;height:calc(100% - 160px)}
+.menu_btns{width:100%;height:calc(100% - 160px);overflow: auto;}
 .menu_btns .navigation-icon{width:80px;height:80px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);cursor:pointer;background:#fff}
 .menu_btns .close_in{width:22px;height:16px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);overflow:hidden}
 .menu_btns .navigation-icon span{display:block;width:100%;max-width:100%;height:2px;background-color:#ed1f24}
@@ -282,7 +282,7 @@ section{padding:50px 0 50px 15px}
 .fling_mrnu{background:#fff}
 .fling_mrnu li{border-bottom:solid 1px #ccc}
 .fling_mrnu li:last-child{border:0 none}
-.fling_mrnu li a{color:#282828;font-size:14px;padding:5px 15px;display:block;text-decoration:none}
+.fling_mrnu li a{color:#282828;font-size:14px;padding:31px 15px;display:block;text-decoration:none;text-align:center;}
 .fling_mrnu li:hover a,
 .fling_mrnu li.active a{background:#ed1f24;color:#fff}
 .fling_mrnu.flyout{right:0}
