@@ -1,0 +1,116 @@
+@media only screen and (max-width:1600px) {
+.technologies ul li._grid1,.grid-sizer{width:50px;height:50px}
+.technologies ul li._grid2{width:90px;height:105px}
+.technologies ul li._grid3{width:150px;height:155px}
+.technologies ul li._grid4{width:180px;height:185px}
+.technologies ul li._grid5{width:190px;height:195px}
+}
+@media only screen and (max-width:1300px) {
+.page_multiple_titles p{font-size:22px}
+.services h4{font-size:20px}
+.services ul li{width:49.5%}
+.services ul li:nth-child(2){margin-top:0}
+.portfolio li p{font-size:16px;padding:15px}
+.portfolio li p span{font-size:13px}
+.portfolio ul li.port_sm .portfolio_in p:after{top:5px}
+.technologies .left{position:static;width:100%;margin:0}
+.technologies .left + div{width:100%;display:block;margin:0;padding:0}
+}
+@media only screen and (max-width:1250px) {
+footer a{padding:90px 25px;min-height:0}
+}
+@media only screen and (max-width:1200px) {
+.video_blog{width:75%}
+.home .page_intro{padding:50px 0 100px}
+.cw_video{transform:scale(0.5);-moz-transform:scale(0.5);-ms-transform:scale(0.5);-o-transform:scale(0.5);-webkit-transform:scale(0.5);top:80px}
+.page_multiple_titles h2{font-size:70px}
+.vdo_blg .cw_clip_path:after{background-size:auto 500px}
+.testimonial h2{font-size:45px}
+.technologies ul li{width:33.3%}
+}
+@media only screen and (max-width:1024px) {
+.portfolio ul{display:block}
+.portfolio ul li.port_lg{width:49.5%}
+.portfolio ul li.port_sm{width:100%;padding:0}
+.portfolio ul li.port_sm .portfolio_in{width:50%;float:left;padding:15px}
+.portfolio ul li.port_sm .portfolio_in p{position:static;box-shadow:none}
+.portfolio ul li.port_sm .portfolio_in p:after{display:none}
+.portfolio ul li.port_sm .portfolio_in{height:100%}
+footer h2{font-size:35px}
+}
+@media only screen and (max-width:992px) {
+.navbar_in{padding:50px 15px;padding-right:0}
+.testimonial h2{position:static;transform:none;margin-bottom:50px}
+.testimonial .left{position:static;transform:none;margin-bottom:20px}
+.services{padding-top:50px}
+.services .left{position:static;transform:none}
+.technologies{padding-top:50px}
+.technologies .left{position:static;transform:none}
+.port_in span{font-size:25px}
+.gallery p{font-size:14px}
+section.culture_blog{padding-bottom:0}
+.culture_blog > div{display:block;padding:0}
+.culture_blog > div > div{width:100%;display:block;margin:0 0 30px}
+.culture_info{left:0}
+.culture_blog.approach{direction:ltr}
+.culture_blog.approach .culture_info{right:0}
+.team > ul{margin:0}
+.culture_info{padding:20px}
+.portfolio ul li.port_sm .portfolio_in,.portfolio ul li.port_sm .portfolio_in a{height:auto!important}
+.technologies ul li{position:static!important;vertical-align:top}
+.grid-sizer{display:none}
+}
+@media only screen and (max-width:768px) {
+.home .page_intro{padding:50px 0}
+.page_intro{background:none;margin:0}
+.page_intro .watermark{top:80px}
+header{width:100%;height:80px;box-shadow:0 2px 2px #ccc}
+.logo{float:left;width:80px}
+.menu_btns{height:100%;width:calc(100% - 160px);float:left}
+.cta_icon{float:right;box-shadow:-1px 0 0 #ccc;width:80px}
+.main_navbar,.cta_main_block{height:calc(100% - 80px);top:80px;padding:0;border-top:solid 1px #fff;left:0;width:100%}
+.cta_main_block{width:100%;padding:50px 15px}
+.page_container{padding:100px 0 50px}
+.page_multiple_titles h2{font-size:30px;margin:10px 0}
+.video_blog{display:none}
+.company_details{height:calc(100% - 50px);overflow:auto}
+.company_details h2{top:0}
+.company_address{width:100%}
+footer a{text-align:center;min-height:0}
+.testimonial ul{padding:100px 0}
+.technologies .left{margin-bottom:0}
+.technologies ul{height:auto!important;position:static!important}
+.technologies ul li{width:33.3%;padding:10px;margin:0!important;position:static!important}
+.technology_info{display:none;width:100%;position:static;opacity:1;visibility:visible;padding:0}
+.technology_info figure{display:block}
+.fling_mrnu{top:137px}
+.cta_block ul li{width:100%}
+.fling_mrnu{display:none;border:solid 1px #ccc}
+.menu_BTN{display:block}
+}
+@media only screen and (max-width:600px) {
+h2{font-size:30px}
+.navbar_in{padding:50px 0}
+nav ul li a{font-size:24px}
+.cta_head h2{font-size:28px}
+.page_multiple_titles p{font-size:18px}
+.portfolio li p{font-size:18px}
+.portfolio li p span{font-size:14px}
+.portfolio ul li.port_sm .portfolio_in{width:100%}
+.portfolio ul li.port_lg{width:100%}
+.testimonial h2{font-size:30px}
+.testimonial ul li{margin:0;padding:0 15px}
+.testimonial .slick-list{padding:0}
+.testimonial_in{width:100%}
+.technologies ul li{width:50%}
+.gallery ul li{width:100%}
+.gallery ul li.gallery_25{padding-bottom:50%}
+.gallery ul ul li{width:50%}
+.gallery ul li.gallery_move{margin:0}
+.team_info{opacity:1;visibility:visible}
+}
+@media only screen and (max-width:480px) {
+.portfolio ul li.port_lg,.portfolio ul li.port_sm{width:100%}
+.services ul li{width:100%;margin:0!important}
+.technologies ul li{width:100%}
+}
