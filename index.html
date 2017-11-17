@@ -1,27 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<!doctype html>
-<html>
 <head>
-<meta charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Arimo:400italic,400,700italic,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="ai.css">
+
+
+    <style type="text/css">
+    
+        .chatBtn{position: fixed; bottom:100px; right: 0; background: none; border: 0 none; width: 100px; height: 10px; outline: 0 none; }
+        .chatBtn img{width: 100%; height: auto;}
+        .chat-container{display: none; position: absolute; bottom: 120px; right: 0; background: #fff; border: solid 1px #ccc; width: 400px; padding: 15px; }
+        .chat-container #chat-so-far > div{width: 100% !important; height: auto; min-height: 60px; }
+        .chat-container .reply{margin-left: 0; text-align: right; }
+
+    </style>
 </head>
+
 <body>
-	<h1>Chat testing</h1>
 
 
-<!--	<script type="text/javascript">!function(t,e){"use strict";var r=function(t){try{var r=e.head||e.getElementsByTagName("head")[0],a=e.createElement("script");a.setAttribute("type","text/javascript"),a.setAttribute("src",t),r.appendChild(a)}catch(t){}};t.CollectId = "5a0c83edb846a25b0111d0e4",r("https://s3.amazonaws.com/collectchat/launcher.js")}(window,document);</script>
--->
-	<!-- Start of BotEngine (www.botengine.ai) code -->
-<script type="text/javascript">
-    window.__be = window.__be || {};
-    window.__be.id = "5a0e9aeaca00fc0007225e8f";
-    (function() {
-        var be = document.createElement('script'); be.type = 'text/javascript'; be.async = true;
-        be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.botengine.ai/widget/plugin.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s);
-    })();
+    <h1>Simple Chat</h1>
+
+
+
+    <button class="chatBtn">
+        <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat-2/256/chat-2-icon.png">
+    </button>
+
+
+    <div class="chat-container">
+
+        <div id="chat-so-far" class="gap-above">
+        </div>
+
+        <form action="#" method="get" id="chat_form">
+            <div class="form-group gap-above">
+                <label for="chat_question">Speak, human</label>
+                <input type="text" class="form-control" id="chat_question">
+            </div>
+        </form>
+
+    </div>
+    <!-- /.container -->
+</body>
+<script>
+
+    $(document).ready(function(){
+        $('.chatBtn').click(function(){
+            $('.chat-container').slideToggle();
+        });
+    });
+
+
+    // store the id between lines of chat text
+    var chatId = '';
+
+    // create a new speech bubble
+    function createContent(text, panelType) {
+
+        var panelClass = '';
+        switch (panelType) {
+            case "question":
+                panelClass = "bubble";
+                break;
+            case "answer":
+                panelClass = "reply";
+                break;
+            default:
+                panelClass = "message";
+                break;
+        }
+
+        // create the speech bubble
+        var create = '<div class="' + panelClass + '">' + text + '</div>';
+        $(create).appendTo($('#chat-so-far')).hide().slideDown("fast");
+
+        // keep the input bar in view
+        var thePage = $('html,body');
+        thePage.animate({
+            scrollTop: thePage.prop("scrollHeight")
+        }, 1000);
+    }
+
+    // react to incoming responses
+    function chatResponse(data) {
+        chatId = data.chatId;
+        createContent(data.result.answer, "answer");
+    }
+
+    $(document).ready(function() {
+
+        $('#reset-button').click(function(target) {
+
+            // ditch the chatid to start a new conversation
+            if (chatId != '') {
+                createContent("The chat context has been reset", "message");
+            }
+            chatId = '';
+        });
+
+       $('#about-button').click(function(target) {
+            createContent("<a href=\"http://www.hutoma.ai/\" target=\"other\">hu:toma</a> meets <a href=\"https://en.wikipedia.org/wiki/HAL_9000\" target=\"other\">HAL 9000</a>");
+        });
+
+        $('#chat_form').bind('submit', function(event) {
+
+            // use the client key
+            var auth = 'eyJhbGciOiJIUzI1NiIsImNhbGciOiJERUYifQ.eNocyj0KAkEMQOG7pDawcX42Yye6xcCwC2JjJZNk5wJiJd7dYPWK933gtrUFTv88L60u631b2wMOcK716iOHEdmioA5RjBQVO4eAuxSeRrJZj-T69RbHxpoLqWLuZThmxz0xzmJkaQ-WJ4LvDwAA__8.1xvIZObzmrrgXykQZcfimAH0xQUUEU6dzgayOWi96yY';
+
+            // the id of the ai we are talking to
+            var aiid = '63f48d4b-cfbc-414c-a833-eb980f5d7c21';
+
+            // the question
+            var question = $('#chat_question').val();
+
+            // the http parameters
+            var data = {
+                'q': question,
+                'chatId': chatId
+            };
+
+            // create a speech bubble with the question
+            createContent(question, "question");
+            // clear the input text so that the user can keep typing
+            $('#chat_form input').val('').blur().focus();
+
+            // make the ajax call
+            $.ajax({
+                url: 'https://api.hutoma.ai/v1/ai/' + aiid + '/chat',
+                type: "GET",
+                data: data,
+                headers: {
+                    "Authorization": "Bearer " + auth
+                },
+                dataType: "json",
+                success: chatResponse,
+                error: function(jqXHR, textStatus, error) {
+                    // an empty error means that we didn't connect correctly to the server
+                    if (error == "") {
+                        createContent("Error connecting to AI", "message");
+                    } else {
+                        // otherwise we have a JSON error from the server
+                        createContent(jqXHR.responseJSON.status.code + ": " + jqXHR.responseJSON.status.info, "message");
+                    }
+                }
+            });
+
+            return false;
+        });
+    });
 </script>
-<!-- End of BotEngine code -->
-        
-	</body>
-</html>
 
+</html>
